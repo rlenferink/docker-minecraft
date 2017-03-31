@@ -1,27 +1,24 @@
-# docker-minecraft
+## docker-minecraft
 
 A nice and easy way to get a Minecraft server up and running using docker. For
 help on getting started with docker see the [official getting started guide][0].
 For more information on Minecraft and check out it's [website][1].
 
-## Quickstart
+### Quickstart
 
-To quickly get your container up and running execute
+To quickly get your container up and running execute on of the following commands
 
-    sudo docker run -d true -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
+To run minecraft without volume mount, run:
 
+    docker run -d --name=mc -p 25565:25565 rlenferink/minecraft /start
 
-## Building docker-minecraft
+To run minecraft without volume mount, run:
 
-Running this will build you a docker image with the latest version of both
-docker-minecraft and Minecraft itself.
+    docker run -d --name=mc -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
 
-    git clone https://github.com/rlenferink/docker-minecraft
-    cd docker-minecraft
-    sudo docker build -t rlenferink/minecraft .
+Running minecraft with volume mount is to safe your world data.
 
-
-## Running docker-minecraft
+### Running docker-minecraft
 
 Running the first time will set your port to a static port of your choice so
 that you can easily map a proxy to. If this is the only thing running on your
@@ -32,18 +29,28 @@ same port as well.
 Also be sure your mounted directory on your host machine is
 already created before running `mkdir -p /mnt/minecraft`.
 
-    sudo docker run -d true -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
+    docker run -d --name=mc -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
 
 From now on when you start/stop docker-minecraft you should use the container id
 with the following commands. To get your container id, after you initial run
 type `sudo docker ps` and it will show up on the left side followed by the
 image name which is `rlenferink/minecraft:latest`.
 
-    sudo docker start <container_id>
-    sudo docker stop <container_id>
+    docker start <container_id>
+    docker stop <container_id>
 
 
-### Notes on the run command
+### Building docker-minecraft
+
+Running this will build you a docker image with the latest version of both
+docker-minecraft and Minecraft itself.
+
+    git clone https://github.com/rlenferink/docker-minecraft
+    cd docker-minecraft
+    docker build -t rlenferink/minecraft .
+
+
+#### Notes on the run command
 
  + `-d` allows this to run cleanly as a daemon, remove for debugging
  + `-p` is the port it connects to, `-p host_port:docker_port`
