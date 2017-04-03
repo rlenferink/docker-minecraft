@@ -1,5 +1,7 @@
 ## docker-minecraft
 
+[![Docker Pull](https://img.shields.io/docker/pulls/rlenferink/minecraft.svg)](https://hub.docker.com/r/rlenferink/minecraft/)
+
 A nice and easy way to get a Minecraft server up and running using docker. For
 help on getting started with docker see the [official getting started guide][0].
 For more information on Minecraft and check out it's [website][1].
@@ -12,7 +14,7 @@ To run minecraft without volume mount, run:
 
     docker run -d --name=mc -p 25565:25565 rlenferink/minecraft /start
 
-To run minecraft without volume mount, run:
+To run minecraft with volume mount, run:
 
     docker run -d --name=mc -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
 
@@ -55,7 +57,7 @@ docker-minecraft and Minecraft itself.
  + `-d` allows this to run cleanly as a daemon, remove for debugging
  + `-p` is the port it connects to, `-p host_port:docker_port`
  + `-v` is the volume you are mounting `-v host_dir:docker_dir`
- + `rlenferink/minecraft` is simply what I called my docker build of this image
+ + `rlenferink/minecraft` is how this docker image is called
 
 [0]: http://www.docker.io/gettingstarted/
 [1]: http://minecraft.net/
