@@ -18,7 +18,7 @@ To run minecraft with volume mount, run:
 
     docker run -d --name=mc -p 25565:25565 -v /mnt/minecraft:/data rlenferink/minecraft /start
 
-Running minecraft with volume mount is to safe your world data.
+Running minecraft with volume mount is to save your world data.
 
 ### Running docker-minecraft
 
