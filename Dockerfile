@@ -5,8 +5,8 @@
 # (http://minecraft.net/).
 # -----------------------------------------------------------------------------
 
-# Base system is the LTS version of Ubuntu.
-FROM   ubuntu:14.04
+# Base image is the latest LTS version of Ubuntu
+FROM   ubuntu:18.04
 
 # Make sure we don't get notifications we can't answer during building.
 ENV    DEBIAN_FRONTEND noninteractive
