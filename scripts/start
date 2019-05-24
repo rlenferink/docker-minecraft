@@ -5,7 +5,7 @@
 
 if [ ! -f /data/minecraft_server.jar ]
 then
-    curl "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar" -o /data/minecraft_server.jar
+    curl "https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar" -o /data/minecraft_server.jar
 fi
 
 if [ ! -f /data/eula.txt ]
