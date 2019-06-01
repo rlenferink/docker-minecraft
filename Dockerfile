@@ -12,8 +12,8 @@ FROM   ubuntu:18.04
 ENV    DEBIAN_FRONTEND noninteractive
 
 # Download and install everything from the repos.
-RUN    apt-get --yes update; apt-get --yes upgrade; apt-get --yes install software-properties-common
-RUN    apt-add-repository --yes ppa:webupd8team/java; apt-get --yes update
+RUN    apt-get -y update; apt-get -y upgrade; apt-get -y install software-properties-common curl default-jdk
+RUN    apt-add-repository -y ppa:webupd8team/java; apt-get -y update
 RUN    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
        echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
        apt-get --yes install curl oracle-java8-installer ; apt-get clean
